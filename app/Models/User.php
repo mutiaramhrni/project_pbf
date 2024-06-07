@@ -11,6 +11,10 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    public function hasRole($role)
+    {
+        return $this->role === $role; // Sesuaikan dengan struktur role Anda
+    }
     /**
      * The attributes that are mass assignable.
      *

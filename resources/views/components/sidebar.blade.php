@@ -1,3 +1,6 @@
+@php
+    $user = Auth::user();
+@endphp
 <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-white"
     id="sidenav-main">
     <div class="sidenav-header">
@@ -24,6 +27,7 @@
             <li class="nav-item mt-3">
               <h6 class="ps-4 ms-2 text-uppercase text-xs text-dark font-weight-bolder opacity-8">Transaksi</h6>
           </li>
+            @if(auth()->user()->role == 'sekum' || auth()->user()->role == 'user')
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('suratmasuk*') ? 'text-white bg-blue' : 'text-dark' }}"
                     href="{{ url('/suratmasuk') }}">
@@ -51,6 +55,68 @@
                     <span class="nav-link-text ms-1">Status Surat</span>
                 </a>
             </li>
+            @endif
+            @if(auth()->user()->role == 'user')
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('pengirimansurat*') ? 'text-white bg-blue' : 'text-dark' }}"
+                    href="{{ url('/pengirimansurat') }}">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">send</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Pengiriman Surat</span>
+                </a>
+            </li>
+            @endif
+            @if(auth()->user()->role == 'ketum')
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('approvalsurat*') ? 'text-white bg-blue' : 'text-dark' }}"
+                    href="{{ url('/approvalsurat') }}">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">inbox</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Approval Surat</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('suratmasuk*') ? 'text-white bg-blue' : 'text-dark' }}"
+                    href="{{ url('/suratmasuk') }}">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">inbox</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Surat Masuk</span>
+                </a>
+            </li>
+            @endif
+            @if(auth()->user()->role == 'sekdept')
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('permintaansurat*') ? 'text-white bg-blue' : 'text-dark' }}"
+                    href="{{ url('/permintaansurat') }}">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">send</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Permintaan Surat</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('suratkeluar*') ? 'text-white bg-blue' : 'text-dark' }}"
+                    href="{{ url('/suratkeluar') }}">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">receipt_long</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Surat Keluar</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('agenda*') ? 'text-white bg-blue' : 'text-dark' }}"
+                    href="{{ url('/agenda') }}">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">hourglass_empty</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Status Surat</span>
+                </a>
+            </li>
+            @endif
+            @if(auth()->user()->role == 'sekum')
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('notifications*') ? 'text-white bg-blue' : 'text-dark' }}"
                     href="{{ url('/notifications') }}">
@@ -60,6 +126,7 @@
                     <span class="nav-link-text ms-1">Arsip Surat</span>
                 </a>
             </li>
+            @endif
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs text-dark font-weight-bolder opacity-8">Halaman Akun</h6>
             </li>
@@ -73,9 +140,9 @@
                 </a>
             </li>
             <li class="nav-item d-flex" style="margin-left:40px;">
+                        
                     <form method="POST" action="{{ route('logout') }}">
                             @csrf
-
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
