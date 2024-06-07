@@ -139,18 +139,7 @@
                     <span class="nav-link-text ms-1">Profil</span>
                 </a>
             </li>
-<<<<<<< HEAD
-            <li class="nav-item d-flex" style="margin-left:40px;">
-                        
-                    <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('keluar') }}
-                            </x-dropdown-link>
-                    </form>
-=======
+
             <li class="nav-item">
                 <a class="nav-link text-dark" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <div class="text-center me-2 d-flex align-items-center justify-content-center">
@@ -161,7 +150,6 @@
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>
->>>>>>> 4845d13492b1e6d7971251bbd494b531c51cb767
             </li>
         </ul>
     </div>
