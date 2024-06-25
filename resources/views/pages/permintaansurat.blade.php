@@ -10,7 +10,7 @@
             {{ session('success') }}
         </div>
     @endif
-    <form class="row g-3" action="{{ route('surat.store') }}" method="POST" enctype="multipart/form-data">
+    <form class="row g-3" action="{{ route('permintaansurat.store') }}" method="POST">
             @csrf
         
         <div class="col-md-6">

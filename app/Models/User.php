@@ -24,7 +24,26 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role'
     ];
+
+
+    public function sentLetters()
+    {
+        return $this->hasMany(Letters::class, 'user_id');
+    }
+
+    // Relationship with Letters (Received)
+    public function receivedLetters()
+    {
+        return $this->hasMany(Letters::class, 'id_penerima');
+    }
+
+     // Relationship with Approval
+     public function approvals()
+     {
+         return $this->hasMany(Approval::class, 'user_id');
+     }
 
     /**
      * The attributes that should be hidden for serialization.

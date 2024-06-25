@@ -1,81 +1,57 @@
 @extends('layout.main')
 @section('content')
 <div class="row">
-  <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-      <div class="card">
-          <div class="card-header p-3 pt-2">
-              <div
-                  class="icon icon-lg icon-shape bg-blue shadow-dark text-center border-radius-xl mt-n4 position-absolute">
-                  <i class="material-icons opacity-10">call_received</i>
-
-              </div>
-              <div class="text-end pt-1">
-                  <p class="text-sm mb-0 text-capitalize">Surat Masuk</p>
-                  <h4 class="mb-0">21</h4>
-              </div>
-          </div>
-          <hr class="dark horizontal my-0">
-          <div class="card-footer p-3">
-              <p class="mb-0"><span class="text-success text-sm font-weight-bolder">100% </span></p>
-          </div>
-      </div>
-  </div>
-  <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-      <div class="card">
-          <div class="card-header p-3 pt-2">
-              <div
-                  class="icon icon-lg icon-shape bg-yellow shadow-dark text-center border-radius-xl mt-n4 position-absolute">
-                  <i class="material-icons opacity-10">call_made</i>
-
-              </div>
-              <div class="text-end pt-1">
-                  <p class="text-sm mb-0 text-capitalize">Surat Keluar</p>
-                  <h4 class="mb-0">29</h4>
-              </div>
-          </div>
-          <hr class="dark horizontal my-0">
-          <div class="card-footer p-3">
-              <p class="mb-0"><span class="text-success text-sm font-weight-bolder">100% </span></p>
-          </div>
-      </div>
-  </div>
-  <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-      <div class="card">
-          <div class="card-header p-3 pt-2">
-              <div
-                  class="icon icon-lg icon-shape bg-softgreen shadow-success text-center border-radius-xl mt-n4 position-absolute">
-                  <i class="material-icons opacity-10">settings</i>
-
-              </div>
-              <div class="text-end pt-1">
-                  <p class="text-sm mb-0 text-capitalize">Disposisi</p>
-                  <h4 class="mb-0">15</h4>
-              </div>
-          </div>
-          <hr class="dark horizontal my-0">
-          <div class="card-footer p-3">
-              <p class="mb-0"><span class="text-success text-sm font-weight-bolder">100%</span></p>
-          </div>
-      </div>
-  </div>
-  <div class="col-xl-3 col-sm-6">
-      <div class="card">
-          <div class="card-header p-3 pt-2">
-              <div
-                  class="icon icon-lg icon-shape bg-skyblue shadow-info text-center border-radius-xl mt-n4 position-absolute">
-                  <i class="material-icons opacity-10">person</i>
-              </div>
-              <div class="text-end pt-1">
-                  <p class="text-sm mb-0 text-capitalize">User Aktif</p>
-                  <h4 class="mb-0">12</h4>
-              </div>
-          </div>
-          <hr class="dark horizontal my-0">
-          <div class="card-footer p-3">
-              <p class="mb-0"><span class="text-success text-sm font-weight-bolder">100% </span></p>
-          </div>
-      </div>
-  </div>
+  <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+    <div class="card">
+        <div class="card-header p-3 pt-2">
+            <div class="icon icon-lg icon-shape bg-blue shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                <i class="material-icons opacity-10">call_received</i>
+            </div>
+            <div class="text-end pt-1">
+                <p class="text-sm mb-0 text-capitalize">Surat Masuk</p>
+                <h4 class="mb-0 text-6xl">{{ $suratMasuk }}</h4>
+            </div>
+        </div>
+        <hr class="dark horizontal my-0">
+        <div class="card-footer p-3">
+            
+        </div>
+    </div>
+</div>
+<div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+    <div class="card">
+        <div class="card-header p-3 pt-2">
+            <div class="icon icon-lg icon-shape bg-yellow shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                <i class="material-icons opacity-10">call_made</i>
+            </div>
+            <div class="text-end pt-1">
+                <p class="text-sm mb-0 text-capitalize">Surat Keluar</p>
+                <h4 class="mb-0 text-6xl">{{ $suratKeluar }}</h4>
+            </div>
+        </div>
+        <hr class="dark horizontal my-0">
+        <div class="card-footer p-3">
+            
+        </div>
+    </div>
+</div>
+<div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+    <div class="card">
+        <div class="card-header p-3 pt-2">
+            <div class="icon icon-lg icon-shape bg-skyblue shadow-info text-center border-radius-xl mt-n4 position-absolute">
+                <i class="material-icons opacity-10">person</i>
+            </div>
+            <div class="text-end pt-1">
+                <p class="text-sm mb-0 text-capitalize">User Aktif</p>
+                <h4 class="mb-0 text-6xl">{{ $userAktif }}</h4>
+            </div>
+        </div>
+        <hr class="dark horizontal my-0">
+        <div class="card-footer p-3">
+            
+        </div>
+    </div>
+</div>
 </div>
 <div class="row mt-4">
   <div class="col-lg-4 col-md-6 mt-4 mb-4">
