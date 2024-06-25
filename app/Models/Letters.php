@@ -19,13 +19,33 @@ class Letters extends Model
      * @var string[]
      */
     protected $fillable = [
-        'nomor_agenda',
+        'nomor_surat',
         'pengirim',
+        'id_penerima',
         'tanggal_event',
         'perihal',
+        'agenda',
+        'lampiran',
         'user_id',
     ];
 
+    public function sender()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    // Relationship with User (Recipient)
+    public function penerima()
+    {
+        return $this->belongsTo(User::class, 'id_penerima');
+    }
+
+     // Relationship with Approval
+     public function approvals()
+     {
+         return $this->hasMany(Approval::class, 'letter_id');
+     }
+    
     /**
      * @var string[]
      */
@@ -73,8 +93,10 @@ class Letters extends Model
         return $query->when($search, function($query, $find) {
             return $query
                 ->where('id', $find)
-                ->orWhere('nomor_agenda', $find)
+                ->orWhere('nomor_surat', $find)
                 ->orWhere('pengirim', 'LIKE', $find . '%')
+                ->orWhere('penerima', 'LIKE', $find . '%')
+                ->orWhere('tanggal_event', 'LIKE', $find . '%')
                 ->orWhere('perihal', 'LIKE', $find . '%');
         });
     }
@@ -119,8 +141,5 @@ class Letters extends Model
     /**
      * @return HasMany
      */
-    public function attachments(): HasMany
-    {
-        return $this->hasMany(Attachment::class, 'letter_id', 'id');
-    }
+    
 }
