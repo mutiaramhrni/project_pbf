@@ -8,12 +8,17 @@
   
 </nav>
 @foreach($letters as $letter)
+@foreach($letters as $letter)
 <div class="card mb-4">
   <div class="card-header pb-0">
       <div class="d-flex justify-content-between flex-column flex-sm-row">
           <div class="card-title">
               <a href="{{ route('letter.detail', ['id' => $letter->id]) }}" class="text-decoration-none d-block fs-5 text-nowrap mb-0 fw-bold cursor-pointer">{{ $letter->nomor_surat }}</a>
+              <a href="{{ route('letter.detail', ['id' => $letter->id]) }}" class="text-decoration-none d-block fs-5 text-nowrap mb-0 fw-bold cursor-pointer">{{ $letter->nomor_surat }}</a>
               <small class="text-black">
+              <span class="text-secondary">{{ __('Pengirim') }}:</span>{{ $letter->pengirim }} |
+                  <span class="text-secondary">{{ __() }}</span>  {{ $letter->agenda }} |
+                  {{ $letter->agenda }}
               <span class="text-secondary">{{ __('Pengirim') }}:</span>{{ $letter->pengirim }} |
                   <span class="text-secondary">{{ __() }}</span>  {{ $letter->agenda }} |
                   {{ $letter->agenda }}

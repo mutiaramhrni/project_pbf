@@ -14,6 +14,15 @@
             </ul>
         </div>
     @endif
+        @if($errors->any())
+        <div class="alert alert-danger text-light">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     @if(session('success'))
         <div class="alert alert-success text-white">
             {{ session('success') }}
@@ -25,7 +34,26 @@
         <div class="col-md-6">
             <label for="pengirim" class="form-label">Pengirim</label>
             <input type="text" name="pengirim" class="form-control border ps-2" id="pengirim" value="{{ $name }}" readonly>
+            <input type="text" name="pengirim" class="form-control border ps-2" id="pengirim" value="{{ $name }}" readonly>
         </div>
+        <div class="col-md-6 d-flex align-items-end flex-column">
+        <label for="penerima" class="form-label align-self-start">Penerima</label>
+        <select name="id_penerima" class="form-select form-control border ps-2" aria-label="Default select example">
+            <option selected>Penerima</option>
+            @if(auth()->user()->role == 'user')
+                @foreach ($users as $user)
+                    @if($user->name == 'GEMPA')
+                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                    @endif
+                @endforeach
+            @else
+                @foreach ($users as $user)
+                    @if($user->id != auth()->user()->id)
+                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                    @endif
+                @endforeach
+            @endif
+        </select>
         <div class="col-md-6 d-flex align-items-end flex-column">
         <label for="penerima" class="form-label align-self-start">Penerima</label>
         <select name="id_penerima" class="form-select form-control border ps-2" aria-label="Default select example">
@@ -48,7 +76,11 @@
         <div class="col-md-4">
             <label for="noagenda" class="form-label">Nomor Surat</label>
             <input type="text" name="nomor_surat" class="form-control border ps-2" id="noagenda">
+        <div class="col-md-4">
+            <label for="noagenda" class="form-label">Nomor Surat</label>
+            <input type="text" name="nomor_surat" class="form-control border ps-2" id="noagenda">
         </div>
+        <div class="col-md-4">
         <div class="col-md-4">
             <label for="perihal" class="form-label">Perihal</label>
             <input type="text" name="perihal" class="form-control border ps-2" id="perihal">
@@ -69,6 +101,7 @@
         <div class="col-12">
             <button type="submit" class="btn btn-primary">Kirim</button>
         </div>
+    </form>
     </form>
 </div>
 

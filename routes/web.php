@@ -29,6 +29,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/pengirimansurat', [PagesController::class, 'pengirimansurat'])->name('pengirimansurat');
     Route::get('/permintaansurat', [PermintaanSuratController::class, 'permintaansurat'])->name('permintaansurat');
     Route::get('/daftarrequest', [PermintaanSuratController::class, 'daftarrequest'])->name('daftarrequest');
+    Route::get('/permintaansurat', [PermintaanSuratController::class, 'permintaansurat'])->name('permintaansurat');
+    Route::get('/daftarrequest', [PermintaanSuratController::class, 'daftarrequest'])->name('daftarrequest');
     Route::get('/suratkeluar', [PagesController::class, 'suratkeluar'])->name('suratkeluar');
     Route::get('/profil', [PagesController::class, 'profil'])->name('profil');
     Route::get('/', [PagesController::class, 'index'])->name('index');

@@ -50,6 +50,8 @@
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('statussurat*') ? 'text-white bg-blue' : 'text-dark' }}"
                     href="{{ url('/statussurat') }}">
+                <a class="nav-link {{ Request::is('statussurat*') ? 'text-white bg-blue' : 'text-dark' }}"
+                    href="{{ url('/statussurat') }}">
                     <div class="text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">hourglass_empty</i>
                     </div>
@@ -68,6 +70,8 @@
             @endif
             @if(auth()->user()->role == 'ketum'|| auth()->user()->role == 'sekum')
             <li class="nav-item">
+                <a class="nav-link {{ Request::is('approvals*') ? 'text-white bg-blue' : 'text-dark' }}"
+                    href="{{ url('/approvals') }}">
                 <a class="nav-link {{ Request::is('approvals*') ? 'text-white bg-blue' : 'text-dark' }}"
                     href="{{ url('/approvals') }}">
                     <div class="text-center me-2 d-flex align-items-center justify-content-center">
@@ -90,6 +94,8 @@
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('daftarrequest*') ? 'text-white bg-blue' : 'text-dark' }}"
                     href="{{ url('/daftarrequest') }}">
+                <a class="nav-link {{ Request::is('daftarrequest*') ? 'text-white bg-blue' : 'text-dark' }}"
+                    href="{{ url('/daftarrequest') }}">
                     <div class="text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">receipt_long</i>
                     </div>
@@ -99,6 +105,8 @@
             @endif
             @if(auth()->user()->role == 'sekum')
             <li class="nav-item">
+                <a class="nav-link {{ Request::is('archive*') ? 'text-white bg-blue' : 'text-dark' }}"
+                    href="{{ url('/archive') }}">
                 <a class="nav-link {{ Request::is('archive*') ? 'text-white bg-blue' : 'text-dark' }}"
                     href="{{ url('/archive') }}">
                     <div class="text-center me-2 d-flex align-items-center justify-content-center">
